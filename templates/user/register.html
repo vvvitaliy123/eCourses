@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Реєстрація{% endblock title %}
+
+{% block caption %}Реєстрація{% endblock caption %}
+
+{% block content %}
+{% load static %}
+    <main class="login-body" data-vide-bg="{% static 'assets/img/login-bg.mp4' %}">
+        <!-- Login Admin -->
+        <form class="form-default" action="/user/register" method="POST" onsubmit="return true">
+            {% csrf_token %}
+            <div class="login-form">
+                <!-- logo-login -->
+                <div class="logo-login">
+                    <a href="/home"><img src="{% static 'assets/img/logo/loder.png' %}" alt=""></a>
+                </div>
+                <h2>Реєстрація</h2>
+                <div class="form-input">
+                    <label for="name">Ім'я</label>
+                    <input  type="text" id="login" name="login" placeholder="Ваше ім'я" required>
+                </div>
+                <div class="form-input">
+                    <label for="name">Поштова адреса</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-input">
+                    <label for="name">Пароль</label>
+                    <input type="password" id="pass1" name="pass1" placeholder="Пароль" required>
+                </div>
+                <div class="form-input">
+                    <label for="name">Підтвердження паролю</label>
+                    <input type="password" id="pass2" name="pass2" placeholder="Підтвердження паролю" required>
+                </div>
+                <p style="text-align: center">
+                    <input type="submit" type="submit" value="Зареєструватись" class="btn btn-success b1">
+                </p>
+                <!-- Forget Password -->
+                <a href="/user/login" class="registration">Увійти</a>
+            </div>
+        </form>
+    </main>
+    
+{% endblock content %}

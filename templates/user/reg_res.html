@@ -1,0 +1,19 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Звіт про реєстрацію{% endblock title %}
+
+{% block caption %}Звіт про реєстрацію{% endblock caption %}
+
+{% block content %}
+{% load static %}
+    <div class="container"
+        style="text-align: center; margin: 45px 0px">
+        <h3 style="color: navy">Звіт про реєстрацію</h3>
+        <h4 style="color: darkgreen;">
+            {{ mess }}
+        </h4>
+        <h4 style="color: slateblue;">
+            {{ info }}
+        </h4>
+    </div>
+{% endblock content %}

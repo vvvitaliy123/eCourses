@@ -1,0 +1,36 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+{% load static %}
+    <main class="login-body" data-vide-bg="{% static 'assets/img/login-bg.mp4' %}">
+        <!-- Login Admin -->
+        <form class="form-default" action="/user/login" method="POST" onsubmit="return true">
+            {% csrf_token %}
+            <div class="login-form">
+                <!-- logo-login -->
+                <div class="logo-login">
+                    <a href="index.html"><img src="{% static 'assets/img/logo/loder.png' %}" alt=""></a>
+                </div>
+                <h2>Логін</h2>
+                <div class="form-input">
+                    <label for="name">Логін</label>
+                    <input  type="text" id="login" name="login" placeholder="Логін" required>
+                </div>
+                <div class="form-input">
+                    <label for="name">Пароль</label>
+                    <input type="password" id="pass1" name="pass1" placeholder="Пароль" required>
+                </div>
+                <p style="text-align: center">
+                    <input type="submit" type="submit" value="Увійти" class="btn btn-success b1">
+                </p>
+                
+                <!-- Forget Password -->
+                <a href="#" class="forget">Забули пароль?</a>
+                <!-- Forget Password -->
+                <a href="/user/register" class="registration">Реєстрація</a>
+            </div>
+        </form>
+        <!-- /end login form -->
+    </main>
+{% endblock content %}

@@ -1,0 +1,66 @@
+{% load static %}
+<header style="margin-bottom: 150px;">        
+    <div class="header-area header-transparent">
+        <div class="main-header ">
+            <div class="header-bottom  header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a href="/home"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">
+                                                    Вітаємо,
+                                                    {% if user.is_authenticated %}
+                                                        <span style="color:crimson">
+                                                            {{ user.username }}
+                                                        </span>
+                                                    {% else %}
+                                                        <span style="color:orange">шановний Гість</span>
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                        {% if not user.is_authenticated %}                                                                                          
+                                            <li class="active" ><a href="/home">Домашня</a></li>
+                                            <li><a href="/courses/courses">Курси</a></li>
+                                            <li><a href="/home/about">Про нас</a></li>
+                                            <li><a href="contact.html">Контакти</a></li>
+                                            <!-- Button -->
+                                            <li class="button-header margin-left "><a href="/user/register" class="btn">Реєстрація</a></li>
+                                            <li class="button-header"><a href="/user/login" class="btn btn3">Вхід</a></li>
+                                        {% else %}
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Вихід</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Профіль</a>
+                                            </li>
+                                            <li class="active"><a href="/home">Домашня</a></li>
+                                            <li><a href="/courses/courses">Курси</a></li>
+                                            <li><a href="/home/about">Про нас</a></li>
+                                            <li><a href="contact.html">Контакти</a></li>
+                                        {% endif %}
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div> 
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>        
+</header>
